@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col text-center">
+      <h1>Garda</h1>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-6 offset-md-3 text-center">
+
+      <button *ngIf="connectionStatus == 1" class="btn btn-primary btn-block" (click)="login()">
+        Login to Facebook
+      </button>
+
+      <p *ngIf="connectionStatus == 2 && me">
+        Connected as {{ me.name }}
+      </p>
+
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div *ngFor="let post of feed" class="col-md-4 text-center">
+      <img [src]="post.picture" class="img-fuild rounded mx-auto d-block" [alt]="post.message">
+      {{ post.message }}
+    </div>
+  </div>
+
+</div>
+<router-outlet></router-outlet>
